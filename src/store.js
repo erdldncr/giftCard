@@ -2,7 +2,7 @@ import { applyMiddleware, createStore } from "redux";
 
 import { composeWithDevTools } from "redux-devtools-extension";
 import logger from "redux-logger";
-import thunk from "redux-thunk";
+
 import {
   ADD_NEW_GIFT_CARD,
   EDIT_GIFT_CARD,
@@ -36,7 +36,7 @@ const reducer = (state = { giftCards: [] }, action) => {
 
 const store = createStore(
   reducer,
-  composeWithDevTools(applyMiddleware(thunk, logger))
+  composeWithDevTools(applyMiddleware(logger))
 );
 
 export default store;
