@@ -1,24 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
-
+import { BrowserRouter, Route, Switch } from "react-router-dom";
+import React, { useEffect } from "react";
+import "./App.css";
+import CardContainer from "./components/CardContainer.js/CardContainer";
+import EditCard from "./components/Editcard/EditCard";
+import AddNewCard from "./components/NewCard/AddNewCard";
+import Header from "./components/Header/Header";
+import { useDispatch, useSelector } from "react-redux";
+import data from "./data.json";
+import { getAllGiftCards } from "./actions";
 function App() {
+  const { giftCards } = useSelector((state) => state);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getAllGiftCards(data.people));
+  }, []);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Header />
+      <Switch>
+        <Route path="/" exact component={CardContainer} />
+        <Route path="/edit/:id" component={EditCard} />
+        <Route path="/add" component={AddNewCard} />
+      </Switch>
+    </BrowserRouter>
   );
 }
 

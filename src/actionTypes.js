@@ -1,0 +1,3 @@
+export const GET_ALL_GIFT_CARDS = "GET_ALL_GIFT_CARDS";
+export const ADD_NEW_GIFT_CARD = "ADD_NEW_GIFT_CARD";
+export const EDIT_GIFT_CARD = "EDIT_GIFT_CARD";
