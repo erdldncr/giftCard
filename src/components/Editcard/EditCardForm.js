@@ -22,6 +22,7 @@ const EditForm = ({ id }) => {
     e.preventDefault();
     dispatch(editGiftCard(id, giftCard));
   };
+
   return (
     <div className="form-container">
       <form onSubmit={handleSubmit}>
@@ -48,10 +49,13 @@ const EditForm = ({ id }) => {
         />
         <label htmlFor="balance">Balance</label>
         <input
-          type="text"
+          type="number"
           id="balance"
           name="balance"
-          placeholder="Balance here"
+          placeholder="Balance"
+          required
+          pattern="\d*"
+          title="should only contain digits"
           value={giftCard?.balance || ""}
           onChange={handleChange}
         />
@@ -63,9 +67,12 @@ const EditForm = ({ id }) => {
           name="cardNumber"
           placeholder="Card  Number "
           value={giftCard?.cardNumber || ""}
-          disabled={true}
-          minLength={16}
+          onChange={handleChange}
           maxLength={16}
+          minLength={16}
+          required
+          pattern="\d*"
+          title="should only contain digits"
         />
 
         <label htmlFor="validUntil">Expiration Date</label>
