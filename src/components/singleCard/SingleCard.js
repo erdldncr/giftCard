@@ -9,6 +9,11 @@ const dateValidator = (validUntil) => {
 
   return month + "/" + [...year.toString()].slice(2).join("");
 };
+const validateCardNumber = (cardNumber) => {
+  return [...cardNumber]
+    .map((el, idx) => ((idx + 1) % 4 === 0 ? `${el} ` : el))
+    .join("");
+};
 const SingleCard = ({ name, surname, cardNumber, validUntil, id }) => {
   const [expirationDate, setExpirationDate] = useState("");
   useEffect(() => {
@@ -30,7 +35,7 @@ const SingleCard = ({ name, surname, cardNumber, validUntil, id }) => {
           height="45"
           alt="chip"
         />
-        <p className="digits">{cardNumber}</p>
+        <p className="digits">{cardNumber && validateCardNumber(cardNumber)}</p>
         <p className="name">{`${name || "name"} ${surname || "surname"}`}</p>
 
         <div style={{ display: "block", float: "right" }}>

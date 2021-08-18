@@ -28,7 +28,7 @@ const NewCardForm = ({ newCardData, handleChange, handleSubmit }) => {
           id="balance"
           name="balance"
           placeholder="Balance"
-          value={newCardData?.balance || "0"}
+          value={newCardData?.balance || ""}
           onChange={handleChange}
         />
         <label htmlFor="cardNumber">Card Number</label>
@@ -40,7 +40,7 @@ const NewCardForm = ({ newCardData, handleChange, handleSubmit }) => {
           minLength={16}
           maxLength={16}
           value={newCardData?.cardNumber || ""}
-          onChange={handleChange}
+          disabled={true}
         />
         <label htmlFor="validUntil">Expiration Date</label>
         <input
@@ -48,7 +48,7 @@ const NewCardForm = ({ newCardData, handleChange, handleSubmit }) => {
           id="validUntil"
           name="validUntil"
           placeholder="Expiration Date .."
-          value={newCardData?.validUntil}
+          value={newCardData?.validUntil || new Date().toLocaleString()}
           onChange={handleChange}
         />
         <input type="submit" value="Add New Card" />

@@ -2,7 +2,7 @@
 "people":[
     {
         "id":1,
-            "cardNumber":"1234 5678 9012 1234",
+            "cardNumber":"1234567890121234",
     "name":"Jeanne",
     "surname":"SMITH",
     "validUntil":"2023-08-21",
@@ -10,7 +10,7 @@
     },
     {
         "id":2,
-        "cardNumber":"1234 5678 9012 3456",
+        "cardNumber":"1234567890123456",
         "name":"Darla ",
         "surname":"Rudd",
         "validUntil":"2024-02-21",
@@ -18,7 +18,7 @@
     },
     {
         "id":3,
-        "cardNumber":"1234 5678 9012 9863",
+        "cardNumber":"1234567890129863",
         "name":"Adele",
         "surname":"Mcculloch",
         "validUntil":"2025-08-11",
@@ -26,8 +26,8 @@
     },
     {
         "id":4,
-        "cardNumber":"1234 5678 9012 9863",
-        "name":"Adele",
+        "cardNumber":"1234567890129869",
+        "name":"Erdal",
         "surname":"Mcculloch",
         "validUntil":"2027-09-21",
         "balance":50

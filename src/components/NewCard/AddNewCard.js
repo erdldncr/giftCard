@@ -8,13 +8,13 @@ import { addNewGiftCard } from "../../actions";
 import { useHistory } from "react-router-dom";
 import { v4 as uuidv4 } from "uuid";
 
-const createRandomCardNumber = () => {
-  const randomCardNumber = [...(Math.floor(Math.random() * 1e16) + "")]
-    .map((num, idx) => ((idx + 1) % 4 === 0 ? `${num} ` : num))
-    .join("");
+// const createRandomCardNumber = () => {
+//   const randomCardNumber = [...(Math.floor(Math.random() * 1e16) + "")]
+//     .map((num, idx) => ((idx + 1) % 4 === 0 ? `${num} ` : num))
+//     .join("");
 
-  return randomCardNumber;
-};
+//   return randomCardNumber;
+// };
 
 const AddNewCard = () => {
   const history = useHistory();
@@ -24,7 +24,7 @@ const AddNewCard = () => {
   useEffect(() => {
     setNewCardData({
       id: uuidv4(),
-      cardNumber: createRandomCardNumber(),
+      cardNumber: Math.floor(Math.random() * 1e16).toString(),
     });
   }, []);
 

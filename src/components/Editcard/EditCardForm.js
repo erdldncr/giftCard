@@ -60,7 +60,7 @@ const EditForm = ({ id }) => {
           name="cardNumber"
           placeholder="Card  Number "
           value={giftCard?.cardNumber || ""}
-          onChange={handleChange}
+          disabled={true}
           minLength={16}
           maxLength={16}
         />
