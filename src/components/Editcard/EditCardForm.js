@@ -54,8 +54,6 @@ const EditForm = ({ id }) => {
           name="balance"
           placeholder="Balance"
           required
-          pattern="\d*"
-          title="should only contain digits"
           value={giftCard?.balance || ""}
           onChange={handleChange}
         />

@@ -12,6 +12,7 @@ const NewCardForm = ({ newCardData, handleChange, handleSubmit }) => {
           placeholder="Your name.."
           value={newCardData?.name || ""}
           onChange={handleChange}
+          required
         />
         <label htmlFor="surname">Last Name</label>
         <input
@@ -21,6 +22,7 @@ const NewCardForm = ({ newCardData, handleChange, handleSubmit }) => {
           placeholder="surname"
           value={newCardData?.surname || ""}
           onChange={handleChange}
+          required
         />
         <label htmlFor="balance">Balance</label>
         <input
@@ -40,7 +42,9 @@ const NewCardForm = ({ newCardData, handleChange, handleSubmit }) => {
           minLength={16}
           maxLength={16}
           value={newCardData?.cardNumber || ""}
-          disabled={true}
+          pattern="\d*"
+          title="should only contain digits"
+          onChange={handleChange}
         />
         <label htmlFor="validUntil">Expiration Date</label>
         <input
@@ -48,7 +52,7 @@ const NewCardForm = ({ newCardData, handleChange, handleSubmit }) => {
           id="validUntil"
           name="validUntil"
           placeholder="Expiration Date .."
-          value={newCardData?.validUntil || new Date().toLocaleString()}
+          value={newCardData?.validUntil || new Date()}
           onChange={handleChange}
         />
         <input type="submit" value="Add New Card" />
