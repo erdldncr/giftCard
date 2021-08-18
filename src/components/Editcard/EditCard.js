@@ -19,7 +19,9 @@ const EditCard = () => {
     <Fragment>
       <div className="edit-container">
         <EditCardForm id={id} />
-        <SingleCard {...giftCard} />
+        <div>
+          <SingleCard {...giftCard} />
+        </div>
       </div>
     </Fragment>
   );

@@ -32,8 +32,6 @@ const reducer = (state = { giftCards: [] }, action) => {
     default:
       return state;
   }
-
-  return {};
 };
 
 const store = createStore(
