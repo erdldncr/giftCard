@@ -9,7 +9,7 @@ const EditForm = ({ id }) => {
 
   const [giftCard, setGiftCard] = useState({});
   useEffect(() => {
-    setGiftCard(giftCards?.find((giftCard) => giftCard.id == id));
+    setGiftCard(giftCards?.find((giftCard) => giftCard.id.toString() === id));
   }, [giftCards, id]);
 
   const handleChange = (e) => {
@@ -33,7 +33,9 @@ const EditForm = ({ id }) => {
           placeholder="Your name.."
           value={giftCard?.name || ""}
           onChange={handleChange}
+          required
         />
+
         <label htmlFor="surname">Last Name</label>
         <input
           type="text"
@@ -42,13 +44,14 @@ const EditForm = ({ id }) => {
           placeholder="surname"
           value={giftCard?.surname || ""}
           onChange={handleChange}
+          required
         />
         <label htmlFor="balance">Balance</label>
         <input
           type="text"
           id="balance"
           name="balance"
-          placeholder="Your surname.."
+          placeholder="Balance here"
           value={giftCard?.balance || ""}
           onChange={handleChange}
         />
@@ -64,6 +67,7 @@ const EditForm = ({ id }) => {
           minLength={16}
           maxLength={16}
         />
+
         <label htmlFor="validUntil">Expiration Date</label>
         <input
           type="date"
@@ -73,6 +77,7 @@ const EditForm = ({ id }) => {
           value={giftCard?.validUntil || ""}
           onChange={handleChange}
         />
+
         <input type="submit" value="Edit Card" />
       </form>
     </div>

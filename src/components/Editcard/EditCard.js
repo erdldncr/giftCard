@@ -8,10 +8,11 @@ import { Fragment } from "react";
 import { useSelector } from "react-redux";
 const EditCard = () => {
   const { id } = useParams();
+
   const { giftCards } = useSelector((state) => state);
   const [giftCard, setGiftCard] = useState({});
   useEffect(() => {
-    setGiftCard(giftCards?.find((giftCard) => giftCard.id == id));
+    setGiftCard(giftCards?.find((giftCard) => giftCard.id.toString() === id));
   }, [giftCards, id]);
 
   return (

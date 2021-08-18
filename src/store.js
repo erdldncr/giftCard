@@ -15,10 +15,12 @@ const reducer = (state = { giftCards: [] }, action) => {
       return { ...state, giftCards: action.payload };
 
     case EDIT_GIFT_CARD:
+      const { id, data } = action.payload;
+
       return {
         ...state,
         giftCards: state.giftCards.map((giftCard) =>
-          giftCard.id == action.payload.id ? action.payload.data : giftCard
+          giftCard.id.toString() === id ? data : giftCard
         ),
       };
     case ADD_NEW_GIFT_CARD:

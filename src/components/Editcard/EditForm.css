@@ -33,3 +33,8 @@ div {
 .form-container {
   width: 50%;
 }
+.error {
+  padding: 20px;
+  background-color: #f44336;
+  color: white;
+}
