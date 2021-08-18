@@ -22,11 +22,13 @@ const SingleCard = ({ name, surname, cardNumber, validUntil, id }) => {
           className="logo"
           src="https://gist.githubusercontent.com/beckettnormington/9b6427d6f220b6f94e324c86d01cee30/raw/ad33f00e6e29e8e6662c4accb07bc3b0b90841a0/mastercard.svg"
           height="60"
+          alt="logo"
         />
         <img
           className="chip"
           src="https://img.icons8.com/ios/452/sim-card-chip.png"
           height="45"
+          alt="chip"
         />
         <p className="digits">{cardNumber}</p>
         <p className="name">{`${name || "name"} ${surname || "surname"}`}</p>
@@ -35,7 +37,7 @@ const SingleCard = ({ name, surname, cardNumber, validUntil, id }) => {
           <p className="valid-text">
             Valid Thru
             <br />
-            <d className="valid-date">{expirationDate}</d>
+            <span className="valid-date">{expirationDate || "00-00-0000"}</span>
           </p>
         </div>
       </div>

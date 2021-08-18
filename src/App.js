@@ -5,15 +5,14 @@ import CardContainer from "./components/CardContainer.js/CardContainer";
 import EditCard from "./components/Editcard/EditCard";
 import AddNewCard from "./components/NewCard/AddNewCard";
 import Header from "./components/Header/Header";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import data from "./data.json";
 import { getAllGiftCards } from "./actions";
 function App() {
-  const { giftCards } = useSelector((state) => state);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getAllGiftCards(data.people));
-  }, []);
+  }, [dispatch]);
   return (
     <BrowserRouter>
       <Header />

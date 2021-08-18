@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useHistory } from "react-router-dom";
 import { editGiftCard } from "../../actions";
 import "./EditForm.css";
 
@@ -11,7 +10,7 @@ const EditForm = ({ id }) => {
   const [giftCard, setGiftCard] = useState({});
   useEffect(() => {
     setGiftCard(giftCards?.find((giftCard) => giftCard.id == id));
-  }, [giftCards]);
+  }, [giftCards, id]);
 
   const handleChange = (e) => {
     setGiftCard({
@@ -26,50 +25,52 @@ const EditForm = ({ id }) => {
   return (
     <div className="form-container">
       <form onSubmit={handleSubmit}>
-        <label for="fname">Name</label>
+        <label htmlFor="fname">Name</label>
         <input
           type="text"
           id="name"
           name="name"
           placeholder="Your name.."
-          value={giftCard?.name}
+          value={giftCard?.name || ""}
           onChange={handleChange}
         />
-        <label for="surname">Last Name</label>
+        <label htmlFor="surname">Last Name</label>
         <input
           type="text"
           id="surname"
           name="surname"
           placeholder="surname"
-          value={giftCard?.surname}
+          value={giftCard?.surname || ""}
           onChange={handleChange}
         />
-        <label for="balance">Balance</label>
+        <label htmlFor="balance">Balance</label>
         <input
           type="text"
           id="balance"
           name="balance"
           placeholder="Your surname.."
-          value={giftCard?.balance}
+          value={giftCard?.balance || ""}
           onChange={handleChange}
         />
 
-        <label for="cardNumber">Card Number</label>
+        <label htmlFor="cardNumber">Card Number</label>
         <input
           type="text"
           id="cardNumber"
           name="cardNumber"
           placeholder="Card  Number "
-          value={giftCard?.cardNumber}
+          value={giftCard?.cardNumber || ""}
           onChange={handleChange}
+          minLength={16}
+          maxLength={16}
         />
-        <label for="validUntil">Expiration Date</label>
+        <label htmlFor="validUntil">Expiration Date</label>
         <input
           type="date"
           id="validUntil"
           name="validUntil"
           placeholder="Expiration Date .."
-          value={giftCard?.validUntil}
+          value={giftCard?.validUntil || ""}
           onChange={handleChange}
         />
         <input type="submit" value="Edit Card" />

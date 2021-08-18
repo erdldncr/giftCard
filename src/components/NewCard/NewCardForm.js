@@ -4,44 +4,45 @@ const NewCardForm = ({ newCardData, handleChange, handleSubmit }) => {
   return (
     <div className="form-container">
       <form onSubmit={handleSubmit}>
-        <label for="fname">Name</label>
+        <label htmlFor="fname">Name</label>
         <input
           type="text"
           id="name"
           name="name"
           placeholder="Your name.."
-          value={newCardData?.name}
+          value={newCardData?.name || ""}
           onChange={handleChange}
         />
-        <label for="surname">Last Name</label>
+        <label htmlFor="surname">Last Name</label>
         <input
           type="text"
           id="surname"
           name="surname"
           placeholder="surname"
-          value={newCardData?.surname}
+          value={newCardData?.surname || ""}
           onChange={handleChange}
         />
-        <label for="balance">Balance</label>
+        <label htmlFor="balance">Balance</label>
         <input
           type="text"
           id="balance"
           name="balance"
           placeholder="Balance"
-          value={newCardData?.balance}
+          value={newCardData?.balance || "0"}
           onChange={handleChange}
         />
-        <label for="cardNumber">Card Number</label>
+        <label htmlFor="cardNumber">Card Number</label>
         <input
           type="text"
           id="cardNumber"
           name="cardNumber"
           placeholder="Card  Number "
+          minLength={16}
           maxLength={16}
-          value={newCardData?.cardNumber}
+          value={newCardData?.cardNumber || ""}
           onChange={handleChange}
         />
-        <label for="validUntil">Expiration Date</label>
+        <label htmlFor="validUntil">Expiration Date</label>
         <input
           type="date"
           id="validUntil"
